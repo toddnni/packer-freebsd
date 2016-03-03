@@ -17,9 +17,9 @@ to build virtualbox image only:
 
 `packer build -only=virtualbox-iso template-10.2.json`
 
-to build kvm image only:
+to build kvm image only (hides display also):
 
-`packer build -only=qemu template-10.2.json`
+`packer build -only=qemu --var qemu_display=none template-10.2.json`
 
 To use any Vagrant box:
 

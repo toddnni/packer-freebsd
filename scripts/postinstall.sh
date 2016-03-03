@@ -50,5 +50,10 @@ chsh -s tcsh root
 #echo 'Patching FreeBSD..'
 #freebsd-update fetch install > /dev/null
 
+echo 'Installing packages'
+echo 
+
+pkg install -y rsync
+
 echo
 echo 'Post-install complete.'

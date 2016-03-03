@@ -46,9 +46,8 @@ echo
 echo 'Changing roots shell back'
 chsh -s tcsh root
 
-# This causes a hang on shutdown that we cannot automatically recover from
-#echo 'Patching FreeBSD..'
-#freebsd-update fetch install > /dev/null
+echo 'Patching FreeBSD..'
+freebsd-update --not-running-from-cron fetch install
 
 echo 'Installing packages'
 echo 

@@ -23,12 +23,11 @@ else
 	echo 'Unknown type of VM, not installing tools..'
 fi
 
+
 # Used for shared folders
 echo 'nfs_client_enable="YES"' >> /etc/rc.conf
 
 echo 'autoboot_delay="0"' >> /boot/loader.conf
-
-echo 'Welcome to your zx23 virtual machine' > /etc/motd
 
 echo
 echo 'Setting up sudo..'
@@ -47,15 +46,13 @@ echo
 echo 'Changing roots shell back'
 chsh -s tcsh root
 
-# This causes a hang on shutdown that we cannot automatically recover from
-#echo 'Patching FreeBSD..'
-#freebsd-update fetch install > /dev/null
+echo 'Patching FreeBSD..'
+freebsd-update --not-running-from-cron fetch install
 
 echo 'Installing packages'
 echo 
 
-pkg install -y py27-salt py27-pip
-pip install python-gnupg
+pkg install -y rsync
 
 echo
 echo 'Post-install complete.'

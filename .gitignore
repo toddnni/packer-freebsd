@@ -2,5 +2,3 @@ packer_cache/
 output-qemu/
 
 .DS_Store
-
-*.box
